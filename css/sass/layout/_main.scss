@@ -1,0 +1,28 @@
+@import "../components/popupWindowOverlay";
+
+.container {
+  text-align: center;
+
+  textarea {
+    display: block;
+    width: 100%;
+
+  }
+
+  #lint {
+    width: 100%;
+    outline: none;
+    border: none;
+    padding: 5px 0;
+    cursor: pointer;
+  }
+
+  .result {
+    padding: 5px;
+    text-align: justify;
+  }
+
+
+  @extend %popup-window-overlay;
+
+}

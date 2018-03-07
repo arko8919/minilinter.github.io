@@ -1,0 +1,22 @@
+@import "./mixins";
+
+%centering {
+  left: 50%;
+  top: 50%;
+  @include transform(translate(-50%, -50%));
+}
+
+%vertically-centering {
+  top: 50%;
+  @include transform(translateY(-50%));
+}
+
+
+
+%display-flex {
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -o-flex;
+  display: -ms-flex;
+  display: flex;
+}

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Mini Linter</title>
+
+    <link type="text/css" rel="stylesheet" href="css/normalize.css"/>
+    <link type="text/css" rel="stylesheet" href="css/style.css"/>
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
+
+    <!-- ICONS -->
+    <link href="//cdn.materialdesignicons.com/2.1.19/css/materialdesignicons.min.css" media="all" rel="stylesheet"
+          type="text/css"/>
+
+
+</head>
+<body>
+<nav id="nav">
+    <a href="javascript:void(0)" id="closebtn">&times;</a>
+    <div id="options">
+        <span>Lint</span>
+        <span>Check Words</span>
+        <span>Add words</span>
+        <span>Replace Words</span>
+        <span>Show Words</span>
+    </div>
+</nav>
+
+<div class="sideMenu">
+    <span id="openbtn">&#9776;</span>
+</div>
+
+<header>
+    <h1>Mini Linter</h1>
+</header>
+<main class="container">
+    <textarea id="input" name="text" rows="10" placeholder="Text here..."></textarea>
+    <button id="lint">Lint</button>
+    <div class="result">
+        <p id="output"></p>
+    </div>
+
+    <!-- Popup Window when user choose add words option -->
+    <div class="popup-window-overlay">
+        <div class="popup-window-container">
+            <input id="overusedWords" name="overusedWords" type="text" placeholder="Type overused words"/>
+            <input id="unnecessaryWords" name="unnecessaryWords" type="text"
+                   placeholder="Type unnecessary words"/>
+            <button class="addWordBtn">Add words</button>
+            <button class="closeAddWords">Close Window</button>
+        </div>
+    </div>
+
+    <!-- Popup Window when user choose replace words option -->
+    <div class="popup-window-overlay">
+        <div class="popup-window-container">
+            <p>Change Overused Words</p>
+            <form class="sideForm">
+                <!-- Added by JS -->
+            </form>
+
+            <p>Change unnecessaryWords</p>
+            <form class="sideForm">
+                <!-- Added by JS -->
+            </form>
+            <button class="replaceWordsBtn">Replace words</button>
+            <button class="closeReplaceWords">Close Window</button>
+            <p id="preview"></p>
+        </div>
+    </div>
+
+    <!-- Popup Window when user choose show words option -->
+    <div class="popup-window-overlay">
+        <div class="popup-window-container">
+            <div class="dropDown">
+                <button>Overused Words</button>
+                <div class="wordsList">
+                </div>
+            </div>
+
+            <div class="dropDown">
+                <button>Unnecessary Words</button>
+                <div class="wordsList">
+                </div>
+            </div>
+            <button class="closeShowWords">Close Window</button>
+        </div>
+    </div>
+
+
+</main>
+
+<footer>
+    <div class="icons">
+        <a href="https://www.facebook.com/artur.sasdunajewski"
+           class="mdi mdi-facebook-box"
+           target="_blank"
+           rel="noopener noreferrer"
+        ></a>
+        <a href="https://www.linkedin.com/in/artur-sas-dunajewski/"
+           class="mdi mdi-linkedin-box"
+           target="_blank"
+           rel="noopener noreferrer"
+        ></a>
+        <a href="https://github.com/arko8919"
+           class="mdi mdi-github-box"
+           target="_blank"
+           rel="noopener noreferrer"
+        ></a>
+    </div>
+    <p>Artur S-D @2018</p>
+</footer>
+<!-- SCRIPTS  -->
+
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
+
+
+<script data-main="js/config" src="js/require.js"></script>
+<script>
+    require(['config'], function () {
+        require(['src/main']);
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+{
+  "name": "mini-linter-babel",
+  "version": "1.0.0",
+  "description": "mini linter",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "babel js/src -d js/customScripts",
+    "watch-sass": "sass --watch css/sass/style.scss:css/style.css",
+    "watch-babel": "babel js/src --watch -d js/customScripts"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.6.1"
+  },
+  "dependencies": {
+    "systemjs": "^0.20.19",
+    "traceur": "0.0.111"
+  }
+}
