@@ -8,10 +8,16 @@ define(['menu', 'updateListOfWords', 'findWords', 'highlightWords'],
 
         openbtn.addEventListener("click", () => {
             document.getElementById("nav").style.width = "50%";
+            setTimeout(() => {
+                document.getElementById("options").style.opacity = "1";
+            }, 300)
         });
 
         closebtn.addEventListener("click", ()  => {
-            document.getElementById("nav").style.width = "0%";
+            document.getElementById("options").style.opacity = "0";
+            setTimeout(() => {
+                document.getElementById("nav").style.width = "0%";
+            }, 100);
         });
 
 
@@ -35,6 +41,7 @@ define(['menu', 'updateListOfWords', 'findWords', 'highlightWords'],
              findWords(userInput);
              // call a function which highlight overused/unnecessary words
              outputParagraph.innerHTML = highlightWords(userInput);
+             document.getElementById("output").style.padding = "10px";
              });
 
         // creating event listeners for all span elements and pass "index" as argument

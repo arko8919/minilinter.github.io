@@ -24,12 +24,18 @@
   #options {
     margin-top: 30%;
     text-align: center;
+    opacity: 0;
 
     span {
       display: block;
       padding: 10px 0;
       cursor: pointer;
-
+      white-space: nowrap;
+      @include transition(.3s);
+      &:hover {
+        color: $hover-text;
+        background-color: $hover;
+      }
     }
   }
 }
@@ -39,7 +45,7 @@
   top: 0;
   left: 0;
   font-size: 1.6em;
-  background-color: white;
+  background-color: $nav;
   width: 100%;
   height: 1.5em;
 

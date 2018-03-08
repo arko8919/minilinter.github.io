@@ -15,6 +15,7 @@ define(['wordsContainer', 'findWords', 'updateListOfWords', 'highlightWords', 'c
                     findWords(userInput);
                     // call a function which highlight overused/unnecessary words
                     outputParagraph.innerHTML = highlightWords(userInput);
+                    document.getElementById("output").style.padding = "10px";
                     break;
                 case 2:
 

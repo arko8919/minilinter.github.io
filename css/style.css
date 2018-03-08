@@ -35,18 +35,27 @@ header, footer {
     color: white; }
   #nav #options {
     margin-top: 30%;
-    text-align: center; }
+    text-align: center;
+    opacity: 0; }
     #nav #options span {
       display: block;
       padding: 10px 0;
-      cursor: pointer; }
+      cursor: pointer;
+      white-space: nowrap;
+      -webkit-transition: 0.3s;
+      -moz-transition: 0.3s;
+      -o-transition: 0.3s;
+      transition: 0.3s; }
+      #nav #options span:hover {
+        color: #82b74b;
+        background-color: #6b5b95; }
 
 .sideMenu {
   position: fixed;
   top: 0;
   left: 0;
   font-size: 1.6em;
-  background-color: white;
+  background-color: #484f4f;
   width: 100%;
   height: 1.5em; }
   .sideMenu #openbtn {
@@ -61,8 +70,8 @@ header {
   align-items: center;
   -webkit-justify-content: center;
   justify-content: center;
-  background-color: #222222;
-  color: #C7F1FF;
+  background-color: #3e4444;
+  color: #82b74b;
   padding: 1em .8em;
   margin-top: 1.5em; }
   header h1 {
@@ -105,10 +114,15 @@ header {
         text-align: justify; }
 
 .container {
-  text-align: center; }
+  text-align: center;
+  background-color: #82b74b;
+  color: #3e4444; }
   .container textarea {
     display: block;
-    width: 100%; }
+    width: 100%;
+    background-color: #82b74b;
+    padding: 10px;
+    text-align: justify; }
   .container #lint {
     width: 100%;
     outline: none;
@@ -116,11 +130,12 @@ header {
     padding: 5px 0;
     cursor: pointer; }
   .container .result {
-    padding: 5px;
     text-align: justify; }
+    .container .result #output {
+      margin: 0; }
 
 footer {
-  background-color: #222222;
+  background-color: #3e4444;
   padding: 1em;
   -webkit-flex-flow: column nowrap;
   flex-flow: column nowrap;
@@ -131,13 +146,13 @@ footer {
   footer a {
     font-size: 3em;
     text-decoration: none;
-    color: #C7F1FF;
+    color: #82b74b;
     -webkit-transition: color 0.5s;
     -moz-transition: color 0.5s;
     -o-transition: color 0.5s;
     transition: color 0.5s; }
     footer a:hover {
-      color: #08FDD8; }
+      color: #6b5b95; }
   footer p {
     font-size: 1em;
     color: #fff; }
