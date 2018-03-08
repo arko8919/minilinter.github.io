@@ -2,10 +2,15 @@
 
 .container {
   text-align: center;
+  background-color: $background-even;
+  color: $text-even;
 
   textarea {
     display: block;
     width: 100%;
+    background-color: $background-even;
+    padding: 10px;
+    text-align: justify;
 
   }
 
@@ -15,11 +20,15 @@
     border: none;
     padding: 5px 0;
     cursor: pointer;
+
   }
 
   .result {
-    padding: 5px;
     text-align: justify;
+
+    #output {
+      margin: 0;
+    }
   }
 
 
