@@ -1,34 +1,38 @@
 #nav {
-  /* Height & width depends on how you want to reveal the overlay (see JS below) */
   height: 100%;
   width: 0;
   position: fixed;
   z-index: 1;
   left: 0;
   top: 0;
-  background-color: rgb(0, 0, 0);
-  background-color: rgba(0, 0, 0, 0.9);
+  background-color: $nav-overlay-backup;
+  background-color: $nav-overlay;
   overflow-x: hidden;
-  transition: .5s; /* 0.5 second transition effect to slide in or slide down the overlay (height or width, depending on reveal) */
-  color: white;
+  @include transition(.5s);
+  color: $nav-overlay-text;
 
   #closebtn {
     position: absolute;
-    top: 0;
-    right: 10px;
-    font-size: 2em;
+    @extend %horizontally-centering;
+    font-size: 3em;
     text-decoration: none;
-    color: white;
+    color: $nav-overlay-text;
+    @include transition(.3s);
+    @media only screen and (min-width: 768px) and (min-height: 468px) {
+      top: 0;
+      right: .5em;
+      @include transform(translateX(0));
+    }
   }
 
   #options {
-    margin-top: 30%;
+    margin-top: 5em;
     text-align: center;
     opacity: 0;
 
     span {
       display: block;
-      padding: 10px 0;
+      padding: 0.8em 0;
       cursor: pointer;
       white-space: nowrap;
       @include transition(.3s);
@@ -47,12 +51,13 @@
   font-size: 1.6em;
   background-color: $nav;
   width: 100%;
-  height: 1.5em;
+  height: 2em;
 
   #openbtn {
     position: absolute;
     @extend %vertically-centering;
     cursor: pointer;
     padding-left: 5px;
+    font-size: 1.5em;
   }
 }

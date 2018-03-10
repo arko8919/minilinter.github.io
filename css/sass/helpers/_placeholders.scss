@@ -11,7 +11,10 @@
   @include transform(translateY(-50%));
 }
 
-
+%horizontally-centering {
+  right: 50%;
+  @include transform(translateX(50%));
+}
 
 %display-flex {
   display: -webkit-flex;

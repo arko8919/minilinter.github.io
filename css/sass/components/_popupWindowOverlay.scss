@@ -7,57 +7,102 @@
     z-index: 1;
     left: 0;
     top: 0;
-    background-color: rgb(0, 0, 0);
-    background-color: rgba(0, 0, 0, 0.9);
+    background-color: $nav-overlay-backup;
+    background-color: $nav-overlay;
     overflow-x: auto;
 
     .popup-window-container {
-      position: relative;
-      //@extend %centering;
-      box-shadow: 0 0 10px #fff;
-      padding: 1em .3em;
+      position: absolute;
+      box-shadow: 0 0 .8em #fff;
+      padding: 1em 0.3em;
+      width: 95%;
 
       // Menu Option "Add Words" items
       input {
         display: block;
         width: 100%;
-        margin: 5px 0;
+        margin: 0;
+        padding: .2em;
+        &:focus {
+          outline: 2px solid $hover;
+        }
+      }
+
+      #overusedWords, #unnecessaryWords {
+        margin: 1em 0;
+        padding: .8em;
       }
 
       button {
-        margin: 5px;
-
+        display: inline-block;
+        padding: .5em .7em;
+        margin: .3em;
+        font-size: 1.3em;
+        outline: none;
+        cursor: pointer;
+        background-color: $background-even;
+        color: $text-even;
+        font-weight: bold;
+        width: 10em;
+        @include transition(.3s);
+        &:hover {
+          background-color: $hover;
+          color: $hover-text;
+        }
       }
 
       // Menu option "Replace Words" items
       p {
-        color: #fff;
-
+        color: $text;
+        text-transform: uppercase;
+        font-weight: bold;
       }
 
       form {
         display: inline-block;
-        border: 1px solid #fff;
+        width: 100%;
+        border: 1px solid $text;
         height: 8em;
-        width: 90%;
         overflow-x: auto;
         font-size: 1em;
 
         span {
-          color: white;
-
-
-        }
-
-        input {
-
-        }
-
-        #preview {
-          text-align: justify;
+          color: $text;
         }
       }
+
+      #preview {
+        text-transform: none;
+        font-weight: normal;
+        text-align: justify;
+        height: 12em;
+        max-height: 12em;
+        overflow-x: auto;
+        padding: .8em;
+      }
+
+      .dropDown {
+        display: inline-block;
+        .wordsList {
+          visibility: hidden;
+          height: 8em;
+          overflow-x: auto;
+        }
+      }
+
+      .closeShowWords {
+        display: block;
+        margin: 1em auto;
+      }
     }
+
+    .center {
+      @extend %centering;
+    }
+    .horizontally-center {
+      @extend %horizontally-centering;
+    }
+
 
 
 

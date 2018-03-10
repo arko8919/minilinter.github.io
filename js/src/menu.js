@@ -105,11 +105,13 @@ define(['wordsContainer', 'findWords', 'updateListOfWords', 'highlightWords', 'c
                     const wordsList = document.getElementsByClassName("wordsList");
 
                     dropDown[0].addEventListener("click", ()=> {
-                        wordsList[0].style.display = wordsList[0].style.display === "block" ? "none" : "block";
+                        wordsList[0].style.visibility = wordsList[0].style.visibility === "visible" ?
+                            "hidden" : "visible";
                     });
 
                     dropDown[1].addEventListener("click", ()=> {
-                        wordsList[1].style.display = wordsList[1].style.display === "block" ? "none" : "block";
+                        wordsList[1].style.visibility = wordsList[1].style.visibility === "visible" ?
+                            "hidden" : "visible";
                     });
                     break;
             }
