@@ -1,46 +1,47 @@
 'use strict';
 
 define(['menu', 'updateListOfWords', 'findWords', 'highlightWords'], function (menu, updateListOfWords, findWords, highlightWords) {
-    var userInput = "";
-    var outputParagraph = document.getElementById("output");
 
+    var userInput = "";
+
+    // references to elements
+    var input = document.getElementById("input");
+    var outputParagraph = document.getElementById("output");
+    var nav = document.getElementById("nav");
+    var options = document.getElementById("options");
+    var menuOptions = options.getElementsByTagName("span");
+    var lint = document.getElementById("lint");
     var openbtn = document.getElementById("openbtn");
     var closebtn = document.getElementById("closebtn");
 
+    // open menu
     openbtn.addEventListener("click", function () {
-        document.getElementById("nav").style.width = "50%";
+        nav.style.width = "50%";
         setTimeout(function () {
-            document.getElementById("options").style.opacity = "1";
+            options.style.opacity = "1";
         }, 300);
     });
 
+    // close menu
     closebtn.addEventListener("click", function () {
-        document.getElementById("options").style.opacity = "0";
+        options.style.opacity = "0";
         setTimeout(function () {
-            document.getElementById("nav").style.width = "0%";
+            nav.style.width = "0%";
         }, 100);
     });
 
     // update display list of overused words and unnecessary words
     updateListOfWords();
 
-    // using function (getElementById) we grab reference to <div> element with "id" identifier "dropDown-content"
-    // --> [object HTMLDivElement]
-    var options = document.getElementById("options");
-
-    // using function (getElementsByTagName) we grab reference to all <span> elements --> [object HTMLCollection]
-    var menuOptions = options.getElementsByTagName("span");
-
-    //Lint
-    var lint = document.getElementById("lint");
     lint.addEventListener("click", function () {
         // get input from user and set "userInput" variable using this value
-        userInput = document.getElementById("input").value;
+        userInput = input.value;
         // find overused/unnecessary words, create elements ( span, input ), add event listeners
         findWords(userInput);
         // call a function which highlight overused/unnecessary words
         outputParagraph.innerHTML = highlightWords(userInput);
-        document.getElementById("output").style.padding = "10px";
+        // change style after elements are added
+        outputParagraph.style.padding = ".8em";
     });
 
     // creating event listeners for all span elements and pass "index" as argument
