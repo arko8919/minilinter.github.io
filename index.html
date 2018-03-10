@@ -34,7 +34,7 @@
 </div>
 
 <header>
-    <h1>Mini Linter</h1>
+    <h1>Overused & Unnecessary Words Linter</h1>
 </header>
 <main class="container">
     <textarea id="input" name="text" rows="10" placeholder="Text here..."></textarea>
@@ -45,7 +45,7 @@
 
     <!-- Popup Window when user choose add words option -->
     <div class="popup-window-overlay">
-        <div class="popup-window-container">
+        <div class="popup-window-container center">
             <input id="overusedWords" name="overusedWords" type="text" placeholder="Type overused words"/>
             <input id="unnecessaryWords" name="unnecessaryWords" type="text"
                    placeholder="Type unnecessary words"/>
@@ -56,7 +56,7 @@
 
     <!-- Popup Window when user choose replace words option -->
     <div class="popup-window-overlay">
-        <div class="popup-window-container">
+        <div class="popup-window-container horizontally-center">
             <p>Change Overused Words</p>
             <form class="sideForm">
                 <!-- Added by JS -->
@@ -74,23 +74,21 @@
 
     <!-- Popup Window when user choose show words option -->
     <div class="popup-window-overlay">
-        <div class="popup-window-container">
+        <div class="popup-window-container center">
             <div class="dropDown">
-                <button>Overused Words</button>
+                <button>Overused</button>
                 <div class="wordsList">
                 </div>
             </div>
 
             <div class="dropDown">
-                <button>Unnecessary Words</button>
+                <button>Unnecessary</button>
                 <div class="wordsList">
                 </div>
             </div>
             <button class="closeShowWords">Close Window</button>
         </div>
     </div>
-
-
 </main>
 
 <footer>
