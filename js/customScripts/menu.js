@@ -1,24 +1,28 @@
 'use strict';
 
 define(['wordsContainer', 'findWords', 'updateListOfWords', 'highlightWords', 'changeWords'], function (wordsContainer, findWords, updateListOfWords, highlightWords, changeWords) {
-    // store sequence of text typed by user --> this part change through program running
-    // let userInput = "";
-    // reference to paragraph element
+
+    // references to elements
     var outputParagraph = document.getElementById("output");
+    var input = document.getElementById("input");
 
     return function (option, userInput) {
         switch (option + 1) {
             case 1:
                 // get input from user and set "userInput" variable using this value
-                userInput = document.getElementById("input").value;
+                userInput = input.value;
                 // find overused/unnecessary words, create elements ( span, input ), add event listeners
                 findWords(userInput);
                 // call a function which highlight overused/unnecessary words
                 outputParagraph.innerHTML = highlightWords(userInput);
-                document.getElementById("output").style.padding = "10px";
+                // change style after elements are added
+                outputParagraph.style.padding = "10px";
                 break;
             case 2:
-
+                // if input empty get value
+                if (userInput === "") {
+                    userInput = document.getElementById("input").value;
+                }
                 // find overused/unnecessary words, create elements ( span, input ), add event listeners
                 findWords(userInput);
                 // call a function which highlight overused/unnecessary words

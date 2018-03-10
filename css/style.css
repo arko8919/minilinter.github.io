@@ -180,7 +180,8 @@ header {
     padding: .8em;
     text-align: justify;
     color: #3e4444;
-    border: none; }
+    border: none;
+    resize: none; }
     .container textarea:focus {
       outline: none; }
   .container #lint {

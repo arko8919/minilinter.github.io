@@ -13,6 +13,7 @@
     text-align: justify;
     color: $text-even;
     border: none;
+    resize: none;
     &:focus {
       outline: none;
     }

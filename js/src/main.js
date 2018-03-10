@@ -1,54 +1,53 @@
 define(['menu', 'updateListOfWords', 'findWords', 'highlightWords'],
     function (menu, updateListOfWords, findWords, highlightWords) {
-        let userInput = "";
-        let outputParagraph = document.getElementById("output");
 
+        let userInput = "";
+
+        // references to elements
+        const input = document.getElementById("input");
+        const outputParagraph = document.getElementById("output");
+        const nav = document.getElementById("nav");
+        const options = document.getElementById("options");
+        const menuOptions = options.getElementsByTagName("span");
+        const lint = document.getElementById("lint");
         const openbtn = document.getElementById("openbtn");
         const closebtn = document.getElementById("closebtn");
 
+        // open menu
         openbtn.addEventListener("click", () => {
-            document.getElementById("nav").style.width = "50%";
+            nav.style.width = "50%";
             setTimeout(() => {
-                document.getElementById("options").style.opacity = "1";
+                options.style.opacity = "1";
             }, 300)
         });
 
-        closebtn.addEventListener("click", ()  => {
-            document.getElementById("options").style.opacity = "0";
+        // close menu
+        closebtn.addEventListener("click", () => {
+            options.style.opacity = "0";
             setTimeout(() => {
-                document.getElementById("nav").style.width = "0%";
+                nav.style.width = "0%";
             }, 100);
         });
-
 
         // update display list of overused words and unnecessary words
         updateListOfWords();
 
-
-        // using function (getElementById) we grab reference to <div> element with "id" identifier "dropDown-content"
-        // --> [object HTMLDivElement]
-        const options = document.getElementById("options");
-
-        // using function (getElementsByTagName) we grab reference to all <span> elements --> [object HTMLCollection]
-        const menuOptions = options.getElementsByTagName("span");
-
-        //Lint
-         const lint = document.getElementById("lint");
-         lint.addEventListener("click", ()=> {
-             // get input from user and set "userInput" variable using this value
-             userInput = document.getElementById("input").value;
-             // find overused/unnecessary words, create elements ( span, input ), add event listeners
-             findWords(userInput);
-             // call a function which highlight overused/unnecessary words
-             outputParagraph.innerHTML = highlightWords(userInput);
-             document.getElementById("output").style.padding = "10px";
-             });
+        lint.addEventListener("click", () => {
+            // get input from user and set "userInput" variable using this value
+            userInput = input.value;
+            // find overused/unnecessary words, create elements ( span, input ), add event listeners
+            findWords(userInput);
+            // call a function which highlight overused/unnecessary words
+            outputParagraph.innerHTML = highlightWords(userInput);
+            // change style after elements are added
+            outputParagraph.style.padding = ".8em";
+        });
 
         // creating event listeners for all span elements and pass "index" as argument
         // each index is different option { case inside switch statement } --> menu.js file
         for (let menuOptionsIndex = 0; menuOptionsIndex < menuOptions.length; menuOptionsIndex++) {
-            menuOptions[menuOptionsIndex].addEventListener("click", function () {
-                menu(menuOptionsIndex, userInput);
+            menuOptions[menuOptionsIndex].addEventListener("click", () => {
+                menu(menuOptionsIndex);
             }, false);
         }
     });

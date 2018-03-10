@@ -87,6 +87,10 @@
           visibility: hidden;
           height: 8em;
           overflow-x: auto;
+          p {
+            text-transform: none;
+            font-weight: normal;
+          }
         }
       }
 
@@ -102,11 +106,5 @@
     .horizontally-center {
       @extend %horizontally-centering;
     }
-
-
-
-
-
-
   }
 }

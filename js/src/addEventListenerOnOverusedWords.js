@@ -25,6 +25,5 @@ define(['highlightSelectedWords'],
                         userInput);
                 }
             }
-
         }
     });

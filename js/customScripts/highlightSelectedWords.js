@@ -10,7 +10,6 @@ define(['splitInput', 'joinInput', 'highlightWords'], function (splitInput, join
                 var newInput = joinInput(userInputWords);
 
                 // highlight other overused and unnecessary words
-                document.getElementById("output").innerHTML = highlightWords(newInput);
                 document.getElementById("preview").innerHTML = highlightWords(newInput);
         }; // Function End Here
 });

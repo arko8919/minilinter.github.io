@@ -1,24 +1,29 @@
 define(['wordsContainer', 'findWords', 'updateListOfWords', 'highlightWords', 'changeWords'],
     function (wordsContainer, findWords, updateListOfWords, highlightWords, changeWords) {
-        // store sequence of text typed by user --> this part change through program running
-        // let userInput = "";
-        // reference to paragraph element
-        let outputParagraph = document.getElementById("output");
 
+        // references to elements
+        const outputParagraph = document.getElementById("output");
+        const input = document.getElementById("input");
+        let userInput = "";
 
-        return function (option, userInput) {
+        return function (option) {
             switch (option + 1) {
+
                 case 1:
                     // get input from user and set "userInput" variable using this value
-                    userInput = document.getElementById("input").value;
+                    userInput = input.value;
                     // find overused/unnecessary words, create elements ( span, input ), add event listeners
                     findWords(userInput);
                     // call a function which highlight overused/unnecessary words
                     outputParagraph.innerHTML = highlightWords(userInput);
-                    document.getElementById("output").style.padding = "10px";
+                    // change style after elements are added
+                    outputParagraph.style.padding = ".8em";
                     break;
                 case 2:
-
+                    // if input empty get value
+                    if (userInput === "") {
+                        userInput = document.getElementById("input").value;
+                    }
                     // find overused/unnecessary words, create elements ( span, input ), add event listeners
                     findWords(userInput);
                     // call a function which highlight overused/unnecessary words
@@ -77,7 +82,7 @@ define(['wordsContainer', 'findWords', 'updateListOfWords', 'highlightWords', 'c
                     preview.innerHTML = highlightWords(userInput);
 
                     const replaceWordsBtn = document.getElementsByClassName("replaceWordsBtn")[0];
-                    replaceWordsBtn.addEventListener("click", ()=> {
+                    replaceWordsBtn.addEventListener("click", () => {
                         // change words and return ( clean edited user input, highlighted edited user input )
                         const arrayOfTwoResults = changeWords(userInput);
                         // assign clean edited user input
@@ -104,12 +109,12 @@ define(['wordsContainer', 'findWords', 'updateListOfWords', 'highlightWords', 'c
                     const dropDown = document.getElementsByClassName("dropDown");
                     const wordsList = document.getElementsByClassName("wordsList");
 
-                    dropDown[0].addEventListener("click", ()=> {
+                    dropDown[0].addEventListener("click", () => {
                         wordsList[0].style.visibility = wordsList[0].style.visibility === "visible" ?
                             "hidden" : "visible";
                     });
 
-                    dropDown[1].addEventListener("click", ()=> {
+                    dropDown[1].addEventListener("click", () => {
                         wordsList[1].style.visibility = wordsList[1].style.visibility === "visible" ?
                             "hidden" : "visible";
                     });

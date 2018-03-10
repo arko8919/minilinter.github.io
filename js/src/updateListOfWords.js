@@ -11,6 +11,14 @@ define(['wordsContainer'], function(wordsContainer) {
        // Set the value of the selected paragraph to overused word
        // Set the value of the selected paragraph to unnecessary word
 
+       while (overusedWordsList.firstChild) {
+           overusedWordsList.removeChild(overusedWordsList.firstChild);
+       }
+
+       while (unnecessaryWordsList.firstChild) {
+           unnecessaryWordsList.removeChild(unnecessaryWordsList.firstChild);
+       }
+
 
        for(let wordIndex = 0; wordIndex < wordsContainer.overusedWords.length; wordIndex++) {
            const newParagraphElement = document.createElement("p");
